@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Calculator</title>
+  <style>
+    body{font-family:sans-serif;padding:12px;background:#222;color:#fff}
+    input{width:100%;font-size:28px;padding:12px;margin-bottom:8px}
+    button{width:23%;font-size:22px;padding:12px;margin:1%;}
+  </style>
+</head>
+<body>
+  <input id="out" readonly />
+  <div>
+    <button onclick="press('7')">7</button><button onclick="press('8')">8</button><button onclick="press('9')">9</button><button onclick="press('/')">/</button>
+    <button onclick="press('4')">4</button><button onclick="press('5')">5</button><button onclick="press('6')">6</button><button onclick="press('*')">*</button>
+    <button onclick="press('1')">1</button><button onclick="press('2')">2</button><button onclick="press('3')">3</button><button onclick="press('-')">-</button>
+    <button onclick="press('0')">0</button><button onclick="press('.')">.</button><button onclick="calc()">=</button><button onclick="press('+')">+</button>
+    <button style="width:98%" onclick="clr()">CLEAR</button>
+  </div>
+<script>
+  function press(v){document.getElementById('out').value += v;}
+  function clr(){document.getElementById('out').value = '';}
+  function calc(){
+    try{
+      var r = eval(document.getElementById('out').value);
+      document.getElementById('out').value = r;
+    }catch(e){alert('خطا');}
+  }
+</script>
+</body>
+</html>
